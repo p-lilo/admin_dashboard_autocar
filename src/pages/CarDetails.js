@@ -20,15 +20,15 @@ export default function CarDetails({ car, goBack, onEdit }) {
 
         {/* المعلومات الأساسية */}
         <div className="grid md:grid-cols-2 gap-6 text-right">
-          <p><span className="font-bold"> الاسم: </span>{car.name}</p>
-          <p><span className="font-bold"> الموديل: </span>{car.model}</p>
-          <p><span className="font-bold"> الفئة: </span>{car.category}</p>
-          <p><span className="font-bold"> السعر: </span>{car.price} ج.م</p>
-          <p><span className="font-bold"> الحالة: </span>{car.status}</p>
-          <p><span className="font-bold"> ناقل الحركة: </span>{car.transmission}</p>
-          <p><span className="font-bold"> اللون الخارجي: </span>{car.exteriorColor}</p>
-          <p><span className="font-bold"> اللون الداخلي: </span>{car.interiorColor}</p>
-          <p><span className="font-bold"> الكيلومترات: </span>{car.mileage} كم</p>
+          <p><span className="font-bold text-blue-800"> الاسم: </span>{car.name}</p>
+          <p><span className="font-bold text-blue-800"> الموديل: </span>{car.model}</p>
+          <p><span className="font-bold text-blue-800"> الفئة: </span>{car.category}</p>
+          <p><span className="font-bold text-blue-800"> السعر: </span>{car.price} ج.م</p>
+          <p><span className="font-bold text-blue-800"> حاله العربية: </span>{car.status}</p>
+          <p><span className="font-bold text-blue-800">  الفتيس: </span>{car.transmission}</p>
+          <p><span className="font-bold text-blue-800"> اللون الخارجي: </span>{car.exteriorColor}</p>
+          <p><span className="font-bold text-blue-800"> اللون الداخلي: </span>{car.interiorColor}</p>
+          <p><span className="font-bold text-blue-800"> العداد: </span>{car.mileage} كم</p>
         </div>
 
         {/* الوصف */}
@@ -57,12 +57,7 @@ export default function CarDetails({ car, goBack, onEdit }) {
         )}
       </div>
 
-      {/* زرار التعديل تحت */}
-      <div className="mt-6 flex justify-center">
-        <button onClick={() => onEdit(car)} className="btn btn-warning btn-lg">
-          ✏️ تعديل العربية
-        </button>
-      </div>
+     
     </div>
   );
 }

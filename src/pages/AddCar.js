@@ -77,78 +77,118 @@ export default function AddCar({ goHome }) {
 
       {/* Form */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input
-          className="input input-bordered w-full"
-          placeholder="اسم العربية"
-          value={form.name}
-          onChange={(e) => setForm({ ...form, name: e.target.value })}
-        />
-        <input
-          className="input input-bordered w-full"
-          placeholder="الموديل"
-          value={form.model}
-          onChange={(e) => setForm({ ...form, model: e.target.value })}
-        />
-        <input
-          className="input input-bordered w-full"
-          placeholder="الفئة"
-          value={form.category}
-          onChange={(e) => setForm({ ...form, category: e.target.value })}
-        />
-        <input
-          className="input input-bordered w-full"
-          placeholder="الفتيس"
-          value={form.transmission}
-          onChange={(e) => setForm({ ...form, transmission: e.target.value })}
-        />
-        <input
-          className="input input-bordered w-full"
-          placeholder="العداد"
-          value={form.mileage}
-          onChange={(e) => setForm({ ...form, mileage: e.target.value })}
-        />
-        <input
-          className="input input-bordered w-full"
-          placeholder="الحالة"
-          value={form.status}
-          onChange={(e) => setForm({ ...form, status: e.target.value })}
-        />
-        <input
-          type="number"
-          className="input input-bordered w-full"
-          placeholder="السعر"
-          value={form.price}
-          onChange={(e) => setForm({ ...form, price: e.target.value })}
-        />
-        <input
-          className="input input-bordered w-full"
-          placeholder="اللون الخارجي"
-          value={form.exteriorColor}
-          onChange={(e) => setForm({ ...form, exteriorColor: e.target.value })}
-        />
-        <input
-          className="input input-bordered w-full"
-          placeholder="اللون الداخلي"
-          value={form.interiorColor}
-          onChange={(e) => setForm({ ...form, interiorColor: e.target.value })}
-        />
+        <label className="form-control">
+          <span className="label-text text-blue-800">اسم العربية</span>
+          <input
+            className="input input-bordered w-full border-2"
+            value={form.name}
+            onChange={(e) => setForm({ ...form, name: e.target.value })}
+          />
+        </label>
+
+        <label className="form-control">
+          <span className="label-text text-blue-800">الموديل</span>
+          <input
+            className="input input-bordered w-full border-2"
+            value={form.model}
+            onChange={(e) => setForm({ ...form, model: e.target.value })}
+          />
+        </label>
+
+        <label className="form-control">
+          <span className="label-text text-blue-800">الفئة</span>
+          <input
+            className="input input-bordered w-full border-2"
+            value={form.category}
+            onChange={(e) => setForm({ ...form, category: e.target.value })}
+          />
+        </label>
+
+        <label className="form-control">
+          <span className="label-text text-blue-800">الفتيس</span>
+          <input
+            className="input input-bordered w-full border-2"
+            value={form.transmission}
+            onChange={(e) =>
+              setForm({ ...form, transmission: e.target.value })
+            }
+          />
+        </label>
+
+        <label className="form-control">
+          <span className="label-text text-blue-800">العداد</span>
+          <input
+            className="input input-bordered w-full border-2"
+            value={form.mileage}
+            onChange={(e) => setForm({ ...form, mileage: e.target.value })}
+          />
+        </label>
+
+        <label className="form-control">
+          <span className="label-text text-blue-800">حاله العربيه</span>
+          <input
+            className="input input-bordered w-full border-2"
+            value={form.status}
+            onChange={(e) => setForm({ ...form, status: e.target.value })}
+          />
+        </label>
+
+        <label className="form-control">
+          <span className="label-text text-blue-800 ">السعر</span>
+          <input
+            type="number"
+            className="input input-bordered w-full border-2"
+            value={form.price}
+            onChange={(e) => setForm({ ...form, price: e.target.value })}
+          />
+        </label>
+
+        <label className="form-control">
+          <span className="label-text text-blue-800">اللون الخارجي</span>
+          <input
+            className="input input-bordered w-full border-2"
+            value={form.exteriorColor}
+            onChange={(e) =>
+              setForm({ ...form, exteriorColor: e.target.value })
+            }
+          />
+        </label>
+
+        <label className="form-control">
+          <span className="label-text text-blue-800">اللون الداخلي</span>
+          <input
+            className="input input-bordered w-full border-2"
+            value={form.interiorColor}
+            onChange={(e) =>
+              setForm({ ...form, interiorColor: e.target.value })
+            }
+          />
+        </label>
       </div>
 
-      <textarea
-        className="textarea textarea-bordered w-full mt-4"
-        placeholder="الوصف"
-        value={form.description}
-        onChange={(e) => setForm({ ...form, description: e.target.value })}
-      />
+      <label className="form-control mt-4">
+        <span className="label-text text-blue-800">الوصف</span>
+        <textarea
+          className="textarea textarea-bordered w-full border-2"
+          value={form.description}
+          onChange={(e) =>
+            setForm({ ...form, description: e.target.value })
+          }
+        />
+      </label>
 
       {/* Upload */}
       <div className="mt-6">
-        <input
-          type="file"
-          multiple
-          onChange={handleUpload}
-          className="file-input file-input-bordered w-full"
-        />
+        <label className="form-control">
+          <span className="label-text text-blue-800">صور العربية</span>
+          <input
+            type="file"
+            multiple
+            onChange={handleUpload}
+            className="file-input file-input-bordered w-full "
+          />
+        </label>
+
         {loading && <p className="text-primary mt-2">⏳ جاري رفع الصور...</p>}
 
         <div className="flex flex-wrap gap-4 mt-4">
