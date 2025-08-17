@@ -8,7 +8,8 @@ const UPLOAD_PRESET = "auto-car";
 
 export default function AddCar({ goHome }) {
   const [form, setForm] = useState({
-    name: "",
+    brand: "",
+    year: "",
     model: "",
     category: "",
     transmission: "",
@@ -40,9 +41,12 @@ export default function AddCar({ goHome }) {
     setImages([...images, ...uploaded]);
     setLoading(false);
   };
-
+ const handleRemoveImage = (img) => {
+    setImages(images.filter((i) => i !== img));
+    if (mainImage === img) setMainImage(null);
+  };
   const handleAddCar = async () => {
-    if (!form.name || !form.model || !form.price || !mainImage) {
+    if (!form.brand || !form.model || !form.year || !form.price || !mainImage) {
       alert("⚠️ برجاء إدخال البيانات الأساسية وتحديد صورة رئيسية");
       return;
     }
@@ -55,8 +59,9 @@ export default function AddCar({ goHome }) {
 
     // Reset
     setForm({
-      name: "",
+      brand: "",
       model: "",
+      year: "",
       category: "",
       transmission: "",
       mileage: "",
@@ -78,11 +83,11 @@ export default function AddCar({ goHome }) {
       {/* Form */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <label className="form-control">
-          <span className="label-text text-blue-800">اسم العربية</span>
+          <span className="label-text text-blue-800">ماركه العربية</span>
           <input
             className="input input-bordered w-full border-2"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            value={form.brand}
+            onChange={(e) => setForm({ ...form, brand: e.target.value })}
           />
         </label>
 
@@ -92,6 +97,14 @@ export default function AddCar({ goHome }) {
             className="input input-bordered w-full border-2"
             value={form.model}
             onChange={(e) => setForm({ ...form, model: e.target.value })}
+          />
+        </label>
+        <label className="form-control">
+          <span className="label-text text-blue-800">السنه</span>
+          <input
+            className="input input-bordered w-full border-2"
+            value={form.year}
+            onChange={(e) => setForm({ ...form, year: e.target.value })}
           />
         </label>
 
@@ -210,10 +223,18 @@ export default function AddCar({ goHome }) {
                   ✅ رئيسية
                 </span>
               )}
+              <button
+                onClick={() => handleRemoveImage(img)}
+                className="absolute bottom-1 right-1 bg-red-600 text-white text-xs px-2 py-1 rounded"
+              >
+                🗑️ حذف
+              </button>
             </div>
           ))}
         </div>
       </div>
+
+
 
       {/* Actions */}
       <div className="flex justify-end gap-4 mt-6">

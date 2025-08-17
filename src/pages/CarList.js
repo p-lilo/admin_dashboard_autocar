@@ -25,7 +25,7 @@ export default function CarList() {
 
   // فلترة حسب البحث
   const filteredCars = cars.filter((car) =>
-    car.name.toLowerCase().includes(search.toLowerCase())
+    car.brand.toLowerCase().includes(search.toLowerCase())
   );
 
   // حساب الصفحات
@@ -87,9 +87,9 @@ if (viewCar) {
             <table className="table table-zebra w-full text-right">
               <thead className="bg-base-200 text-right">
                 <tr>
-                  <th className="px-6 py-3">الاسم</th>
+                  <th className="px-6 py-3">الماركه</th>
                   <th className="px-6 py-3">الموديل</th>
-                  <th className="px-6 py-3">الفئة</th>
+                  <th className="px-6 py-3">السنه</th>
                   <th className="px-6 py-3">السعر</th>
                   <th className="px-6 py-3">الصورة الرئيسية</th>
                   <th className="px-6 py-3 text-center">تحكم</th>
@@ -101,11 +101,11 @@ if (viewCar) {
                     key={car.id}
                     className="hover border-b border-base-200 last:border-none"
                   >
-                    <td className="px-6 py-4 font-semibold">{car.name}</td>
+                    <td className="px-6 py-4 font-semibold">{car.brand}</td>
                     <td className="px-6 py-4">{car.model}</td>
                     <td className="px-6 py-4">
                       <div className="badge badge-accent badge-outline">
-                        {car.category}
+                        {car.year}
                       </div>
                     </td>
                     <td className="px-6 py-4 text-primary font-bold">
