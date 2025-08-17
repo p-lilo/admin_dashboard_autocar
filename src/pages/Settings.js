@@ -14,6 +14,7 @@ export default function Settings() {
     tiktok: "",
     phone: "",
     whatsapp: "", 
+    location: "",
   });
   const [loading, setLoading] = useState(true);
   const [uploading, setUploading] = useState(false);
@@ -67,7 +68,9 @@ export default function Settings() {
 
       {/* بيانات أساسية */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <input
+        <label className="form-control">
+          <span className="label-text text-blue-800"> اسم المعرض</span>
+         <input
           type="text"
           className="input input-bordered w-full"
           placeholder="اسم المعرض"
@@ -76,16 +79,21 @@ export default function Settings() {
             setSettings({ ...settings, companyName: e.target.value })
           }
         />
-
-        <input
+        </label>
+        
+<label className="form-control">
+          <span className="label-text text-blue-800">  رقم الهاتف</span>
+          <input
           type="text"
           className="input input-bordered w-full"
           placeholder="📞 رقم الهاتف"
           value={settings.phone}
           onChange={(e) => setSettings({ ...settings, phone: e.target.value })}
         />
-
-        <input
+        </label>
+        <label className="form-control">
+          <span className="label-text text-blue-800">  رقم الواتساب</span>
+         <input
           type="text"
           className="input input-bordered w-full"
           placeholder="💬 رقم الواتساب"
@@ -94,7 +102,9 @@ export default function Settings() {
             setSettings({ ...settings, whatsapp: e.target.value })
           }
         />
-
+        </label> 
+        <label className="form-control">
+          <span className="label-text text-blue-800"> رابط الفيسبوك</span>
         <input
           type="text"
           className="input input-bordered w-full"
@@ -104,7 +114,21 @@ export default function Settings() {
             setSettings({ ...settings, facebook: e.target.value })
           }
         />
-
+        </label>
+        <label className="form-control">
+          <span className="label-text text-blue-800">  اللوكيشن</span>
+         <input
+          type="text"
+          className="input input-bordered w-full"
+          placeholder=" اللوكيشن"
+          value={settings.location}
+          onChange={(e) =>
+            setSettings({ ...settings, location: e.target.value })
+          }
+        />
+        </label>
+         <label className="form-control">
+          <span className="label-text text-blue-800">  رابط تيك توك</span>
         <input
           type="text"
           className="input input-bordered w-full"
@@ -114,6 +138,11 @@ export default function Settings() {
             setSettings({ ...settings, tiktok: e.target.value })
           }
         />
+        </label>
+       
+
+
+        
 
         
        
@@ -121,7 +150,7 @@ export default function Settings() {
 
       {/* رفع اللوجو */}
       <div className="mt-6">
-        <label className="block mb-2">🖼️ لوجو المعرض</label>
+        <label className="block mb-2 text-blue-800">🖼️ لوجو المعرض</label>
         <input
           type="file"
           accept="image/*"
