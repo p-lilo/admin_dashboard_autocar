@@ -20,8 +20,9 @@ export default function CarDetails({ car, goBack, onEdit }) {
 
         {/* المعلومات الأساسية */}
         <div className="grid md:grid-cols-2 gap-6 text-right">
-          <p><span className="font-bold text-blue-800"> الاسم: </span>{car.name}</p>
+          <p><span className="font-bold text-blue-800"> الماركه: </span>{car.brand}</p>
           <p><span className="font-bold text-blue-800"> الموديل: </span>{car.model}</p>
+          <p><span className="font-bold text-blue-800"> السنه: </span>{car.year}</p>
           <p><span className="font-bold text-blue-800"> الفئة: </span>{car.category}</p>
           <p><span className="font-bold text-blue-800"> السعر: </span>{car.price} ج.م</p>
           <p><span className="font-bold text-blue-800"> حاله العربية: </span>{car.status}</p>

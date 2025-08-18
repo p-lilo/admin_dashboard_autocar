@@ -3,6 +3,7 @@ import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
 import { db } from "../firestore/Config";
 
+
 const CLOUD_NAME = "dzel7gaaf";
 const UPLOAD_PRESET = "auto-car";
 
@@ -55,6 +56,7 @@ export default function AddCar({ goHome }) {
       ...form,
       images,
       mainImage,
+      createdAt: new Date(),
     });
 
     // Reset
