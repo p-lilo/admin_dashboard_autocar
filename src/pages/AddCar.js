@@ -1,6 +1,7 @@
 import axios from "axios";
 import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
+import TextareaAutosize from "react-textarea-autosize";
 import { db } from "../firestore/Config";
 
 
@@ -181,16 +182,18 @@ export default function AddCar({ goHome }) {
         </label>
       </div>
 
-      <label className="form-control mt-4">
-        <span className="label-text text-blue-800">الوصف</span>
-        <textarea
-          className="textarea textarea-bordered w-full border-2"
-          value={form.description}
-          onChange={(e) =>
-            setForm({ ...form, description: e.target.value })
-          }
-        />
-      </label>
+     <label className="form-control mt-4">
+  <span className="label-text text-blue-800">الوصف</span>
+  <TextareaAutosize
+    minRows={3}   // أقل عدد سطور
+    maxRows={10}  // أقصى عدد سطور (اختياري)
+    className="textarea textarea-bordered w-full border-2"
+    value={form.description}
+    onChange={(e) =>
+      setForm({ ...form, description: e.target.value })
+    }
+  />
+</label>
 
       {/* Upload */}
       <div className="mt-6">
